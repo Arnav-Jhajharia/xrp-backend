@@ -1,16 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
+const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 
 const checkJwt = require('./middleware/checkJwt');
 const publicRoutes = require('./routes/public');
 const protectedRoutes = require('./routes/protected');
 
-const swaggerUI = require('swagger-ui-express');
-const swaggerSpec = require('./swagger');
+const swaggerDocument = JSON.parse(fs.readFileSync('./docs/swagger-output.json', 'utf-8'));
+
+
 
 const app = express();
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(cors());
 app.use(express.json());
 

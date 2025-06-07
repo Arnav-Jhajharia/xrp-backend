@@ -1,4 +1,4 @@
-const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerAutogen = require('swagger-autogen');
 
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -8,11 +8,14 @@ const swaggerDefinition = {
 	description: 'TODO: Add a description of the API here',
   },
 };
+const outputFile = './docs/swagger-output.json';
+const endpointsFiles = ['./routes/public.js', './routes/protected.js'];
 
 const options = {
   swaggerDefinition,
-  apis: ['./routes/*.js'], 
+  apis: endpointsFiles, 
 };
 
-const swaggerSpec = swaggerJSDoc(options);
-module.exports = swaggerSpec;
+swaggerAutogen()(outputFile, endpointsFiles).then(() => {
+  console.log('Swagger documentation generated!');
+});
