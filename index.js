@@ -6,7 +6,11 @@ const checkJwt = require('./middleware/checkJwt');
 const publicRoutes = require('./routes/public');
 const protectedRoutes = require('./routes/protected');
 
+const swaggerUI = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
+
 const app = express();
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use(cors());
 app.use(express.json());
 
