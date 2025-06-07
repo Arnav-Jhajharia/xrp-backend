@@ -1,0 +1,339 @@
+{
+  "data": {
+    "identities": [
+      {
+        "address": {
+          "city": "Chicago",
+          "line1": "123 Wacker Drive",
+          "line2": "Apt 502",
+          "state": "Illinois",
+          "country": "USA",
+          "postal_code": "60601"
+        },
+        "first_name": "Emily",
+        "last_name": "Rodriguez",
+        "full_name": "Emily Rodriguez",
+        "birth_date": "1992-07-14",
+        "email": "emily.rodriguez@example.com",
+        "phone_number": "+13125550123",
+        "employment_status": "active",
+        "employment_type": "full-time",
+        "job_title": "Marketing Manager",
+        "ssn": "489-23-7812",
+        "marital_status": "Married",
+        "gender": "Female",
+        "original_hire_date": "2018-02-20",
+        "hire_date": "2018-02-20",
+        "termination_date": null,
+        "termination_reason": null,
+        "base_pay": {
+          "amount": "85000",
+          "period": "annual",
+          "currency": "USD"
+        },
+        "pay_cycle": "biweekly",
+        "platform_ids": {
+          "employee_id": "CHG3482W",
+          "position_id": "POS3382K",
+          "platform_user_id": "USR2389AB"
+        }
+      },
+      {
+        "address": {
+          "city": "Toronto",
+          "line1": "50 King Street W",
+          "line2": "Suite 1200",
+          "state": "Ontario",
+          "country": "Canada",
+          "postal_code": "M5H 1J9"
+        },
+        "first_name": "Lucas",
+        "last_name": "Nguyen",
+        "full_name": "Lucas Nguyen",
+        "birth_date": "1985-11-02",
+        "email": "lucas.nguyen@example.ca",
+        "phone_number": "+14165551234",
+        "employment_status": "active",
+        "employment_type": "contractor",
+        "job_title": "UX Designer",
+        "ssn": "607-49-8872",
+        "marital_status": "Single",
+        "gender": "Male",
+        "original_hire_date": "2023-01-10",
+        "hire_date": "2023-01-10",
+        "termination_date": null,
+        "termination_reason": null,
+        "base_pay": {
+          "amount": "55",
+          "period": "hourly",
+          "currency": "CAD"
+        },
+        "pay_cycle": "weekly",
+        "platform_ids": {
+          "employee_id": "TRN1293L",
+          "position_id": "UXD9472Q",
+          "platform_user_id": "USR4950BC"
+        }
+      },
+      {
+        "address": {
+          "city": "Birmingham",
+          "line1": "10 Bullring Lane",
+          "line2": "",
+          "state": "West Midlands",
+          "country": "UK",
+          "postal_code": "B5 4BU"
+        },
+        "first_name": "Aisha",
+        "last_name": "Khan",
+        "full_name": "Aisha Khan",
+        "birth_date": "1990-04-21",
+        "email": "aisha.khan@example.co.uk",
+        "phone_number": "+447911123456",
+        "employment_status": "on_leave",
+        "employment_type": "full-time",
+        "job_title": "Software Engineer",
+        "ssn": "793-12-3384",
+        "marital_status": "Married",
+        "gender": "Female",
+        "original_hire_date": "2015-06-15",
+        "hire_date": "2017-08-01",
+        "termination_date": null,
+        "termination_reason": null,
+        "base_pay": {
+          "amount": "68000",
+          "period": "annual",
+          "currency": "GBP"
+        },
+        "pay_cycle": "monthly",
+        "platform_ids": {
+          "employee_id": "BHM9823F",
+          "position_id": "SWE6239Z",
+          "platform_user_id": "USR2374KL"
+        }
+      },
+      {
+        "address": {
+          "city": "Austin",
+          "line1": "45 Congress Ave",
+          "line2": "Ste 600",
+          "state": "Texas",
+          "country": "USA",
+          "postal_code": "78701"
+        },
+        "first_name": "Jordan",
+        "last_name": "Foster",
+        "full_name": "Jordan Foster",
+        "birth_date": "1996-09-10",
+        "email": "jfoster@austech.com",
+        "phone_number": "+15125557788",
+        "employment_status": "terminated",
+        "employment_type": "part-time",
+        "job_title": "Support Specialist",
+        "ssn": "379-45-2210",
+        "marital_status": "Single",
+        "gender": "Non-binary",
+        "original_hire_date": "2021-03-12",
+        "hire_date": "2022-05-05",
+        "termination_date": "2024-01-31",
+        "termination_reason": "Restructuring",
+        "base_pay": {
+          "amount": "22",
+          "period": "hourly",
+          "currency": "USD"
+        },
+        "pay_cycle": "weekly",
+        "platform_ids": {
+          "employee_id": "AUS8472M",
+          "position_id": "SPT4281N",
+          "platform_user_id": "USR1283ZP"
+        }
+      },
+      {
+        "address": {
+          "city": "Mumbai",
+          "line1": "15 Marine Drive",
+          "line2": "Flat 9B",
+          "state": "Maharashtra",
+          "country": "India",
+          "postal_code": "400020"
+        },
+        "first_name": "Ravi",
+        "last_name": "Mehta",
+        "full_name": "Ravi Mehta",
+        "birth_date": "1988-03-08",
+        "email": "ravi.mehta@company.in",
+        "phone_number": "+912222334455",
+        "employment_status": "active",
+        "employment_type": "full-time",
+        "job_title": "Operations Analyst",
+        "ssn": "XXX-XX-XXXX",
+        "marital_status": "Married",
+        "gender": "Male",
+        "original_hire_date": "2016-11-01",
+        "hire_date": "2016-11-01",
+        "termination_date": null,
+        "termination_reason": null,
+        "base_pay": {
+          "amount": "45000",
+          "period": "annual",
+          "currency": "EUR"
+        },
+        "pay_cycle": "monthly",
+        "platform_ids": {
+          "employee_id": "MUM2231G",
+          "position_id": "OPS3917H",
+          "platform_user_id": "USR1882AD"
+        }
+      },
+      {
+        "address": {
+          "city": "Berlin",
+          "line1": "Alexanderplatz 4",
+          "line2": "",
+          "state": "Berlin",
+          "country": "Germany",
+          "postal_code": "10178"
+        },
+        "first_name": "Greta",
+        "last_name": "Schmidt",
+        "full_name": "Greta Schmidt",
+        "birth_date": "1994-06-25",
+        "email": "greta.schmidt@arbeit.de",
+        "phone_number": "+4915123456789",
+        "employment_status": "active",
+        "employment_type": "intern",
+        "job_title": "HR Intern",
+        "ssn": "XXX-XX-XXXX",
+        "marital_status": "Single",
+        "gender": "Female",
+        "original_hire_date": "2025-02-01",
+        "hire_date": "2025-02-01",
+        "termination_date": null,
+        "termination_reason": null,
+        "base_pay": {
+          "amount": "1250",
+          "period": "monthly",
+          "currency": "USD"
+        },
+        "pay_cycle": "monthly",
+        "platform_ids": {
+          "employee_id": "BER6731K",
+          "position_id": "HR7893U",
+          "platform_user_id": "USR9827EE"
+        }
+      },
+      {
+        "address": {
+          "city": "Los Angeles",
+          "line1": "789 Sunset Blvd",
+          "line2": "",
+          "state": "California",
+          "country": "USA",
+          "postal_code": "90028"
+        },
+        "first_name": "Carlos",
+        "last_name": "Lopez",
+        "full_name": "Carlos Lopez",
+        "birth_date": "1983-12-12",
+        "email": "clopez@cinemagic.com",
+        "phone_number": "+13235557799",
+        "employment_status": "active",
+        "employment_type": "freelance",
+        "job_title": "Video Editor",
+        "ssn": "540-22-3984",
+        "marital_status": "Divorced",
+        "gender": "Male",
+        "original_hire_date": "2022-06-01",
+        "hire_date": "2023-01-01",
+        "termination_date": null,
+        "termination_reason": null,
+        "base_pay": {
+          "amount": "75",
+          "period": "hourly",
+          "currency": "USD"
+        },
+        "pay_cycle": "project",
+        "platform_ids": {
+          "employee_id": "LAZ3882D",
+          "position_id": "VED8833R",
+          "platform_user_id": "USR8129DL"
+        }
+      },
+      {
+        "address": {
+          "city": "Paris",
+          "line1": "16 Rue de Rivoli",
+          "line2": "",
+          "state": "Île-de-France",
+          "country": "France",
+          "postal_code": "75004"
+        },
+        "first_name": "Juliette",
+        "last_name": "Durand",
+        "full_name": "Juliette Durand",
+        "birth_date": "1991-01-18",
+        "email": "juliette.durand@paris.fr",
+        "phone_number": "+33612345678",
+        "employment_status": "active",
+        "employment_type": "part-time",
+        "job_title": "Museum Guide",
+        "ssn": "XXX-XX-XXXX",
+        "marital_status": "Single",
+        "gender": "Female",
+        "original_hire_date": "2020-03-15",
+        "hire_date": "2020-03-15",
+        "termination_date": null,
+        "termination_reason": null,
+        "base_pay": {
+          "amount": "1500",
+          "period": "monthly",
+          "currency": "EUR"
+        },
+        "pay_cycle": "monthly",
+        "platform_ids": {
+          "employee_id": "PAR8392V",
+          "position_id": "MUS9284G",
+          "platform_user_id": "USR9923FM"
+        }
+      },
+      {
+        "address": {
+          "city": "Nairobi",
+          "line1": "22 Kenyatta Ave",
+          "line2": "Office 12B",
+          "state": "Nairobi County",
+          "country": "Kenya",
+          "postal_code": "00100"
+        },
+        "first_name": "Daniel",
+        "last_name": "Ochieng",
+        "full_name": "Daniel Ochieng",
+        "birth_date": "1987-08-30",
+        "email": "daniel.o@nairobitech.ke",
+        "phone_number": "+254712345678",
+        "employment_status": "active",
+        "employment_type": "full-time",
+        "job_title": "Data Analyst",
+        "ssn": "XXX-XX-XXXX",
+        "marital_status": "Married",
+        "gender": "Male",
+        "original_hire_date": "2019-04-09",
+        "hire_date": "2019-04-09",
+        "termination_date": null,
+        "termination_reason": null,
+        "base_pay": {
+          "amount": "5000",
+          "period": "monthly",
+          "currency": "USD"
+        },
+        "pay_cycle": "monthly",
+        "platform_ids": {
+          "employee_id": "NAI5553Y",
+          "position_id": "DAN4958Q",
+          "platform_user_id": "USR4482QE"
+        }
+      }
+    ]
+  }
+}
