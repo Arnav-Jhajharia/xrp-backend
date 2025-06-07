@@ -20,6 +20,7 @@ const { ApolloServer } = require('apollo-server-express');
 const { checkJwt, getUser } = require('./middleware/checkJwt');
 const publicRoutes    = require('./routes/public');
 const plaidRoutes = require('./routes/plaid');
+const argyleRoutes = require('./routes/argyle');
 const protectedRoutes = require('./routes/protected');
 const protectedOnboardRoutes = require('./routes/protected/onboard');
 const { typeDefs }    = require('./graphql/schema');
@@ -48,6 +49,7 @@ async function start() {
   app.use('/plaid', plaidRoutes); // Plaid routes
   app.use('/api/xrpl', xrplRoutes);
 
+  app.use('/argyle', argyleRoutes); // Argyle routes
   /* ---------- GraphQL layer -------------- */
   const gqlServer = new ApolloServer({
     typeDefs,

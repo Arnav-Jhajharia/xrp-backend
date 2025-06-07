@@ -1,6 +1,5 @@
 const connect = require('../db/mongo');
 const { ObjectId } = require('mongodb');
-const xrpl = require('xrpl');
 
 module.exports.resolvers = {
   Query: {
@@ -21,7 +20,19 @@ module.exports.resolvers = {
       return db.collection('users').findOne({ _id: id });
     },
 
-    resolveDID: async (_, { did }) => await resolveDID(did)
+    resolveDID: async (_, { did }) => await resolveDID(did), 
+    transactions: async (_, __, { user }) => {
+      const db = await connect();
+      return db.collection('transactions').find({ userId: user.sub }).toArray();
+    },
+    identities: async () => {
+      const db = await connect();
+      return db.collection('identities').find().toArray();
+    },
+    identity: async (_, { id }) => {
+      const db = await connect();
+      return db.collection('identities').findOne({ _id: new ObjectId(id) });
+    },
   },
 
   Mutation: {
