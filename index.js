@@ -21,8 +21,11 @@ const { checkJwt, getUser } = require('./middleware/checkJwt');
 const publicRoutes    = require('./routes/public');
 const plaidRoutes = require('./routes/plaid');
 const protectedRoutes = require('./routes/protected');
+const protectedOnboardRoutes = require('./routes/protected/onboard');
 const { typeDefs }    = require('./graphql/schema');
 const { resolvers }   = require('./graphql/resolvers');
+
+const xrplRoutes = require('./routes/xrpl');
 
 const swaggerDocument = JSON.parse(
   fs.readFileSync('./docs/swagger-output.json', 'utf-8')
@@ -41,7 +44,9 @@ async function start() {
   /* ---------- REST routes ---------------- */
   app.use('/public',    publicRoutes);
   app.use('/protected', checkJwt, protectedRoutes);
+  app.use('/protected/onboard', checkJwt, protectedOnboardRoutes);
   app.use('/plaid', plaidRoutes); // Plaid routes
+  app.use('/api/xrpl', xrplRoutes);
 
   /* ---------- GraphQL layer -------------- */
   const gqlServer = new ApolloServer({
