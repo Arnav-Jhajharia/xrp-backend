@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "swagger": "node ./swagger.js"
+    "swagger": "node ./swagger.js",
+    "test": "node test/plaid_test.js"
   },
   "dependencies": {
     "apollo-server-express": "^3.13.0",
@@ -15,6 +16,7 @@
     "graphql": "^16.11.0",
     "jwks-rsa": "^3.0.1",
     "mongodb": "^6.17.0",
+    "plaid": "^35.0.0",
     "swagger-autogen": "^2.23.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
