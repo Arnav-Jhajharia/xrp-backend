@@ -1,64 +1,60 @@
-const { connect, Wallet } = require('./xrplClient');
+// xrpl/did.js
+const { Buffer } = require('buffer');           // ensure Buffer is available
+const { Wallet } = require('xrpl');
+const { connect } = require('./xrplClient');    // your helper that exports connect()
 
-import { Client, Wallet } from 'xrpl'
+/**
+ * Submit a DIDSet transaction on XRPL.
+ */
+async function setDID(seed, doc) {
+  // 1) connect to XRPL
+  const client = await connect(); 
 
-
-async function setDID(seed, didDocument) {
-  const client = await connect();
+  // 2) prepare the DIDSet using the proper 'Properties' field
   const wallet = Wallet.fromSeed(seed);
-  const json   = JSON.stringify(didDocument);
+  const hexDoc = Buffer
+    .from(JSON.stringify(doc), 'utf8')
+    .toString('hex');
+
   const tx = {
     TransactionType: 'DIDSet',
     Account:         wallet.classicAddress,
-    DID:             didDocument.id,
-    Properties:      Buffer.from(json).toString('hex')
+    DID:             doc.id,
+    Properties:      hexDoc,
   };
+
+  // 3) autofill, sign, and submit
   const prepared = await client.autofill(tx);
   const signed   = wallet.sign(prepared);
-  return await client.submitAndWait(signed.tx_blob);
+  const result   = await client.submitAndWait(signed.tx_blob);
+
+  return {
+    tx_json: result.tx_json,
+    result:  result.result,
+  };
 }
 
-export async function setDID(seed, didDocument) {
-  const client = new Client('wss://xrplcluster.com')      // or your node
-  await client.connect()
+/**
+ * Resolve a DID by fetching it from the ledger.
+ */
+async function resolveDID(didString) {
+  const client = await connect();
+  const address = didString.split(':').pop();
 
-  try {
-    const wallet = Wallet.fromSeed(seed)
-
-    // Encode the DID document as hex
-    const didDocHex = Buffer.from(JSON.stringify(didDocument), 'utf8').toString('hex')
-
-    const tx = {
-      TransactionType: 'DIDSet',
-      Account: wallet.classicAddress,
-      DIDDocument: didDocHex            // <= spec-compliant field
-    }
-
-    // Autofill, sign & submit in one step
-    const result = await client.submitAndWait(tx, { autofill: true, wallet })
-
-    if (result.result.meta.TransactionResult !== 'tesSUCCESS') {
-      throw new Error(`DIDSet failed: ${result.result.meta.TransactionResult}`)
-    }
-    return result                       // validated TX + metadata
-  } finally {
-    await client.disconnect()
-  }
-}
-
-async function resolveDID(did) {
-  const parts   = did.split(':');
-  const address = parts.pop();
-  const client  = await connect();
-  const res     = await client.request({
-    command: 'account_objects',
-    account: address,
-    type:    'DID'
+  const resp = await client.request({
+    command:      'account_objects',
+    account:      address,
+    ledger_index: 'validated',
+    type:         'DID',
   });
-  if (!res.result.account_objects.length) throw new Error('DID not found');
-  const obj  = res.result.account_objects[0];
-  const hex  = obj.Properties;
-  return JSON.parse(Buffer.from(hex, 'hex').toString());
+
+  const obj = resp.result.account_objects.find(o => o.DID === didString);
+  if (!obj) throw new Error(`No DID record for ${didString}`);
+
+  // DID entries on chain use 'Properties' for the hex blob
+  const hex = obj.Properties;
+  const json = Buffer.from(hex, 'hex').toString('utf8');
+  return JSON.parse(json);
 }
 
 module.exports = { setDID, resolveDID };

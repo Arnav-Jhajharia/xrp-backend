@@ -1,5 +1,7 @@
 const connect = require('../db/mongo');
 const { ObjectId } = require('mongodb');
+const xrpClient    = require('../xrpl/xrplClient');
+const { resolveDID } = require('../xrpl/did');
 
 module.exports.resolvers = {
   Query: {
@@ -33,6 +35,7 @@ module.exports.resolvers = {
       const db = await connect();
       return db.collection('identities').findOne({ _id: new ObjectId(id) });
     },
+    resolveDID: async (_, { did }) => resolveDID(did),
   },
 
   Mutation: {
@@ -76,13 +79,7 @@ module.exports.resolvers = {
       return true;
     }, 
 
-    setDID: async (_, { seed, didDocument }) => {
-        const tx = await setDID(seed, didDocument);
-        return {
-          transactionHash: tx.tx_json.hash,
-          ledgerIndex: tx.result.ledger_index
-        };
-    },
+    
 
     saveXRPLAddress: async (_, { address, publicKey }, { user }) => {
         const db    = await connect();
@@ -113,7 +110,17 @@ module.exports.resolvers = {
   
         return result;
       },
-   
+  
+        // relay a signed DIDSet transaction
+        submitDID: async (_, { txBlob }) => {
+          const client = await xrpClient.connect();
+          const result = await client.submitAndWait(txBlob);
+          return {
+            transactionHash: result.result.hash,
+            ledgerIndex:     result.result.ledger_index,
+          };
+        },
+
   },
   
   User: {

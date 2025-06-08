@@ -8,7 +8,12 @@
  *  • /graphql       – Auth0-JWT-protected GraphQL API
  */
 
+
+
 require('dotenv').config();
+
+const didRoutes = require('./routes/did');
+
 
 const fs          = require('fs');
 const express     = require('express');
@@ -46,6 +51,7 @@ async function start() {
   app.use('/public',    publicRoutes);
   app.use('/protected', checkJwt, protectedRoutes);
   app.use('/protected/onboard', checkJwt, protectedOnboardRoutes);
+  app.use('/did', didRoutes);
   app.use('/plaid', plaidRoutes); // Plaid routes
   app.use('/api/xrpl', xrplRoutes);
 

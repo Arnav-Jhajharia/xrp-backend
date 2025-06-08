@@ -48,6 +48,7 @@ module.exports.typeDefs = gql`
     saveXRPLAddress(address: String!, publicKey: String!): User!
     setDID(seed: String!, didDocument: JSON!): DIDResult!
     importIdentities(data: [IdentityInput]!): String
+    submitDID(txBlob: String!): DIDResult!
   }
 
    type DIDResult {
